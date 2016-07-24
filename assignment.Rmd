@@ -62,6 +62,36 @@ finaltest
 ```
 
 Accuracy was 99.31% and I got 20/20 when I used on the 20 test cases.
+Confusion Matrix and Statistics
 
+          Reference
+Prediction    A    B    C    D    E
+         A 1395    6    0    0    0
+         B    0  943    8    0    0
+         C    0    0  845   16    2
+         D    0    0    2  788    0
+         E    0    0    0    0  899
+
+Overall Statistics
+                                          
+               Accuracy : 0.9931          
+                 95% CI : (0.9903, 0.9952)
+    No Information Rate : 0.2845          
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.9912          
+ Mcnemar's Test P-Value : NA              
+
+Statistics by Class:
+
+                     Class: A Class: B Class: C Class: D Class: E
+Sensitivity            1.0000   0.9937   0.9883   0.9801   0.9978
+Specificity            0.9983   0.9980   0.9956   0.9995   1.0000
+Pos Pred Value         0.9957   0.9916   0.9791   0.9975   1.0000
+Neg Pred Value         1.0000   0.9985   0.9975   0.9961   0.9995
+Prevalence             0.2845   0.1935   0.1743   0.1639   0.1837
+Detection Rate         0.2845   0.1923   0.1723   0.1607   0.1833
+Detection Prevalence   0.2857   0.1939   0.1760   0.1611   0.1833
+Balanced Accuracy      0.9991   0.9958   0.9919   0.9898   0.9989
 
 Well, this was a very exciting assignment. Can't wait to use what I learned in this course to a tougher data set. 
