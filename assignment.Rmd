@@ -1,0 +1,66 @@
+---
+title: "Practical Machine Learning - final assignment"
+author: "coursera student anonymous sp"
+date: "July 23, 2016"
+output: html_document
+---
+
+For the final assignment of Coursera course, Practical Machine Learning, I have analyzed Fitbit data and predicted 20 test cases.
+
+Human Acitivy Recognition Data is generously provided by the following website, http://groupware.les.inf.puc-rio.br/har.
+
+Some additional reading for the assignment:
+
+1. What is the real difference between CV and repeatedCV?
+http://stats.stackexchange.com/questions/44343/in-caret-what-is-the-real-difference-between-cv-and-repeatedcv
+
+2. Actual code behind the parameters in Caret package
+https://github.com/topepo/caret/blob/a90ac016f8c8776562d53aa95204ca3624caae67/pkg/caret/R/selectByFilter.R#L55
+
+3. How to make RMD file for assignment submission
+https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf
+
+
+So let's get started! First we clean the data set.
+
+```
+pmlTrain<-read.csv("~/desktop/pml-training.csv", header=T, na.strings=c("NA", "#DIV/0!"))
+pmlTest<-read.csv("~/desktop/pml-testing.csv", header=T, na.string=c("NA", "#DIV/0!"))
+
+cleanedpmlTrain<-pmlTrain[, apply(pmlTrain, 2, function(x) !any(is.na(x)))] 
+dim(cleanedpmlTrain)
+
+cleanerpmlTrain<-cleanedpmlTrain[,-c(1:7)]
+dim(cleanerpmlTrain)
+
+cleanerpmltest<-pmlTest[,names(cleanerpmlTrain[,-53])]
+dim(cleanerpmltest)
+```
+
+Now the fun part!
+
+```
+library(lattice)
+library(ggplot2)
+library(caret)
+
+View(cleanerpmltest)
+inTrain<-createDataPartition(y=cleanerpmlTrain$classe, p=0.75,list=F)
+training<-cleanerpmlTrain[inTrain,] 
+test<-cleanerpmlTrain[-inTrain,] 
+
+set.seed(4506)
+cvControlTrain<-trainControl(method="cv",number=5, allowParallel=T, verbose=T)
+rfTrain<-train(classe~.,data=training, method="rf", trControl=cvControlTrain, verbose=F)
+
+result<-predict(rfTrain, newdata=test)
+confusionMatrix(result, test$classe)
+
+finaltest <-predict(rfTrain, newdata=cleanerpmltest)
+finaltest
+
+```
+
+Accuracy was 99.31% and I got 20/20 when I used on the 20 test cases.
+
+Well, this was a very exciting assignment. Can't wait to use what I learned in this course to a tougher data set. 
