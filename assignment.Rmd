@@ -61,7 +61,7 @@ finaltest
 
 ```
 
-Accuracy was 99.31% and I got 20/20 when I used on the 20 test cases.
+Accuracy was 99.31% (below expected out of sample error) and I got 20/20 when I used on the 20 test cases. 
 
 
 Overall Statistics
