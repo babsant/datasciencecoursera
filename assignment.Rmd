@@ -72,7 +72,7 @@ Overall Statistics
     P-Value [Acc > NIR] : < 2.2e-16       
                                           
                   Kappa : 0.9912          
- Mcnemar's Test P-Value : NA              
+          
 
 
 
