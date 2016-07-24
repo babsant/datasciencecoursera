@@ -11,7 +11,7 @@ Human Activity Recognition Data is generously provided by the following website,
 
 Some additional reading for the assignment:
 
-1. What is the real difference between CV and repeatedCV? For our assignment, Cross Validation is more appropriate than repeated Cross Validation, I read the answers in the attached link. 
+1. What is the real difference between CV and repeatedCV? For our assignment, Cross Validation is more appropriate than repeated Cross Validation, I read the answers in the attached link. See below second section for this.
 http://stats.stackexchange.com/questions/44343/in-caret-what-is-the-real-difference-between-cv-and-repeatedcv
 
 2. Actual code behind the parameters in Caret package
