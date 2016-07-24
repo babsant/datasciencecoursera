@@ -5,7 +5,7 @@ date: "July 23, 2016"
 output: html_document
 ---
 
-For the final assignment of Coursera course, Practical Machine Learning, I have analyzed Fitbit data and predicted 20 test cases.
+For the final assignment of Coursera course, Practical Machine Learning, I have analyzed exercise movement data and predicted 20 test cases.
 
 Human Acitivy Recognition Data is generously provided by the following website, http://groupware.les.inf.puc-rio.br/har.
 
